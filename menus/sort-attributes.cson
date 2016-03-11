@@ -1,0 +1,22 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Convert selected text with sort-attributes'
+      'command': 'sort-attributes:convert'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'sort-attributes'
+      'submenu': [
+        {
+          'label': 'Convert'
+          'command': 'sort-attributes:convert'
+        }
+      ]
+    ]
+  }
+]
