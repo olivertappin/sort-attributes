@@ -7,7 +7,7 @@ Sorts selected HTML attributes in alphabetical order.
 Highlight the HTML you would like to sort and choose 'Sort Attributes: Convert'
 from the Command Palette. Alternatively, use the keyboard shortcut `F5`.
 
-[Screenshot video example](https://cloud.githubusercontent.com/assets/9773040/13718309/b4ce728c-e7e0-11e5-867f-3d2866b09669.gif)
+![Screenshot video example](https://cloud.githubusercontent.com/assets/9773040/13718309/b4ce728c-e7e0-11e5-867f-3d2866b09669.gif)
 
 # Support
 
