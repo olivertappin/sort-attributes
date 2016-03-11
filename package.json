@@ -1,7 +1,7 @@
 {
   "name": "sort-attributes",
   "main": "./lib/sort-attributes",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "description": "Sorts selected HTML attributes in alphabetical order",
   "keywords": [],
   "activationCommands": {
