@@ -19,9 +19,9 @@ liners or the opening section of an HTML tag.
 Please see the following examples where this package will easily sort HTML
 attributes in alphabetical order:
 
-`<a href="#" class="anchor">Click me</a>`
-`<input type="email" class="form__input" placeholder="Email address">`
-`<nav id="nav" class="nav">`
+```<a href="#" class="anchor">Click me</a>```
+```<input type="email" class="form__input" placeholder="Email address">```
+```<nav id="nav" class="nav">```
 
 Support for special characters, server side tags (such as PHP) and other inline
 scripts are planned to be supported in future versions.
