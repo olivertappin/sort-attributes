@@ -1,10 +1,9 @@
 {
   "name": "sort-attributes",
   "main": "./lib/sort-attributes",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Sorts selected HTML attributes in alphabetical order",
-  "keywords": [
-  ],
+  "keywords": [],
   "activationCommands": {
     "atom-workspace": "sort-attributes:convert"
   },
@@ -13,6 +12,5 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
