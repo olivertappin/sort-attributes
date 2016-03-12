@@ -15,16 +15,22 @@ Currently, this package only supports full HTML selections. If you select an inc
 
 # Examples
 
-Please see the following examples where this package will easily sort HTML
-attributes in alphabetical order:
+Please see the following examples where this package will easily sort HTML attributes in alphabetical order:
 
-```<a href="#" class="anchor">Click me</a>```
-```<input type="email" class="form__input" placeholder="Email address">```
-```<nav id="nav" class="nav">
-    <ul>
-        <li><a href="#">Link 1</a></li>
-        <li><a href="#">Link 2</a></li>
-        <li><a href="#">Link 3</a></li>
-    </ul>
-</nav>
-```
+_Anchor tag with content_
+
+    <a href="#" class="anchor">Click me</a>
+
+_Input tag (self closing)_
+
+    <input type="email" class="form__input" placeholder="Email address">
+
+_Navigation tag with children_
+
+    <nav id="nav" class="nav">
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+        </ul>
+    </nav>

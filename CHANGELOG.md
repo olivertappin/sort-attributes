@@ -23,3 +23,6 @@
 * Changed README HTML examples to block styling
 * Updated CHANGELOG.md file to list all changes up until current version
 * Changed sorting functionality to use the DOMParser API rather than string manipulation
+
+## 0.2.3
+* Updated README.md with correct block styling and added text detail to each example
