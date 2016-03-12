@@ -26,3 +26,4 @@
 
 ## 0.2.3
 * Updated README.md with correct block styling and added text detail to each example
+* Removed document length check which always returned an undefined value
