@@ -14,34 +14,32 @@ module.exports =
   convert: ->
     if editor = atom.workspace.getActiveTextEditor()
       html = editor.getSelectedText()
+      parser = new DOMParser()
+      doc = parser.parseFromString(html, 'text/html')
 
-      if html
-        typeIsArray = Array.isArray || ( value ) -> return {}.toString.call( value ) is '[object Array]'
-        htmlTag = html.split('>')
-
-        if typeIsArray htmlTag
-          [attributes] = htmlTag.splice(0, 1)
-          tagBeginning = attributes
-
-          attributes = attributes.split(' ').splice(1).sort()
-          [tagBeginning] = tagBeginning.split(' ').splice(0, 1)
-
-          [tagContent] = htmlTag
-          attributeLength = attributes.length
-
-          if attributeLength is 0
-            returnText = tagBeginning + '>'
-
-          else
-            returnText = tagBeginning + ' ' + attributes.join(' ') + '>'
-
-            if tagContent
-              returnText += tagContent + '>'
-
-          editor.insertText(returnText)
-
-        else
+      if doc.length is undefined
           console.log('Selected string does not match the required selection for sorting')
-
       else
-        console.error('Text not selected for sorting')
+        tag = doc.firstChild.lastChild.firstChild
+        attributes = tag.attributes
+        storedAttributes = []
+        storedAttributeNames = []
+
+        # Store the attributes
+        for attribute in attributes
+          storedAttributeNames.push attribute.name
+          storedAttributes[attribute.name] = attribute.value
+
+        # Remove attributes from DOM
+        for storedAttributeName in storedAttributeNames
+          tag.removeAttribute(storedAttributeName)
+
+        # Sort the stored attributes
+        storedAttributeNames.sort()
+
+        # Add sorted attributes back into DOM
+        for storedAttributeName in storedAttributeNames
+          storedAttributeValue = storedAttributes["#{storedAttributeName}"]
+          tag.setAttribute(storedAttributeName, storedAttributeValue)
+
+        editor.insertText(doc.firstChild.lastChild.innerHTML)
