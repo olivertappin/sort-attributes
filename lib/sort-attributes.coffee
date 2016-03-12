@@ -17,29 +17,26 @@ module.exports =
       parser = new DOMParser()
       doc = parser.parseFromString(html, 'text/html')
 
-      if doc.length is undefined
-          console.log('Selected string does not match the required selection for sorting')
-      else
-        tag = doc.firstChild.lastChild.firstChild
-        attributes = tag.attributes
-        storedAttributes = []
-        storedAttributeNames = []
+      tag = doc.firstChild.lastChild.firstChild
+      attributes = tag.attributes
+      storedAttributes = []
+      storedAttributeNames = []
 
-        # Store the attributes
-        for attribute in attributes
-          storedAttributeNames.push attribute.name
-          storedAttributes[attribute.name] = attribute.value
+      # Store the attributes
+      for attribute in attributes
+        storedAttributeNames.push attribute.name
+        storedAttributes[attribute.name] = attribute.value
 
-        # Remove attributes from DOM
-        for storedAttributeName in storedAttributeNames
-          tag.removeAttribute(storedAttributeName)
+      # Remove attributes from DOM
+      for storedAttributeName in storedAttributeNames
+        tag.removeAttribute(storedAttributeName)
 
-        # Sort the stored attributes
-        storedAttributeNames.sort()
+      # Sort the stored attributes
+      storedAttributeNames.sort()
 
-        # Add sorted attributes back into DOM
-        for storedAttributeName in storedAttributeNames
-          storedAttributeValue = storedAttributes["#{storedAttributeName}"]
-          tag.setAttribute(storedAttributeName, storedAttributeValue)
+      # Add sorted attributes back into DOM
+      for storedAttributeName in storedAttributeNames
+        storedAttributeValue = storedAttributes["#{storedAttributeName}"]
+        tag.setAttribute(storedAttributeName, storedAttributeValue)
 
-        editor.insertText(doc.firstChild.lastChild.innerHTML)
+      editor.insertText(doc.firstChild.lastChild.innerHTML)
