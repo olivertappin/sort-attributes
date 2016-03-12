@@ -13,6 +13,7 @@
 ## 0.1.4
 * Changed gif to be embedded rather than linked
 
-## 0.1.5
+## 0.2.0
 * Changed README HTML examples to block styling
 * Updated CHANGELOG.md file to list all changes up until current version
+* Changed sorting functionality to use the DOMParser API rather than string manipulation

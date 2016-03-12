@@ -11,8 +11,7 @@ from the Command Palette. Alternatively, use the keyboard shortcut `F5`.
 
 # Support
 
-Currently, this package only supports _basic_ HTML in the form of simple, one
-liners or the opening section of an HTML tag.
+Currently, this package only supports full HTML selections. If you select an incomplete HTML selection, such as `<a href="#">`, end tags will be added for you. Certain characters within the HTML attribute values will also be encoded with HTML entities (such as PHP opening tags). Support for decoding of these values are planned to be released in future versions.
 
 # Examples
 
@@ -21,7 +20,11 @@ attributes in alphabetical order:
 
 ```<a href="#" class="anchor">Click me</a>```
 ```<input type="email" class="form__input" placeholder="Email address">```
-```<nav id="nav" class="nav">```
-
-Support for special characters, server side tags (such as PHP) and other inline
-scripts are planned to be supported in future versions.
+```<nav id="nav" class="nav">
+    <ul>
+        <li><a href="#">Link 1</a></li>
+        <li><a href="#">Link 2</a></li>
+        <li><a href="#">Link 3</a></li>
+    </ul>
+</nav>
+```
