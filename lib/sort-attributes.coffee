@@ -18,25 +18,32 @@ module.exports =
       doc = parser.parseFromString(html, 'text/html')
 
       tag = doc.firstChild.lastChild.firstChild
-      attributes = tag.attributes
-      storedAttributes = []
-      storedAttributeNames = []
 
-      # Store the attributes
-      for attribute in attributes
-        storedAttributeNames.push attribute.name
-        storedAttributes[attribute.name] = attribute.value
+      # Check if the tag exists
+      if tag?
 
-      # Remove attributes from DOM
-      for storedAttributeName in storedAttributeNames
-        tag.removeAttribute(storedAttributeName)
+          attributes = tag.attributes
+          storedAttributes = []
+          storedAttributeNames = []
 
-      # Sort the stored attributes
-      storedAttributeNames.sort()
+          # Check if the attributes exist
+          if attributes?
 
-      # Add sorted attributes back into DOM
-      for storedAttributeName in storedAttributeNames
-        storedAttributeValue = storedAttributes["#{storedAttributeName}"]
-        tag.setAttribute(storedAttributeName, storedAttributeValue)
+              # Store the attributes
+              for attribute in attributes
+                storedAttributeNames.push attribute.name
+                storedAttributes[attribute.name] = attribute.value
 
-      editor.insertText(doc.firstChild.lastChild.innerHTML)
+              # Remove attributes from DOM
+              for storedAttributeName in storedAttributeNames
+                tag.removeAttribute(storedAttributeName)
+
+              # Sort the stored attributes
+              storedAttributeNames.sort()
+
+              # Add sorted attributes back into DOM
+              for storedAttributeName in storedAttributeNames
+                storedAttributeValue = storedAttributes["#{storedAttributeName}"]
+                tag.setAttribute(storedAttributeName, storedAttributeValue)
+
+              editor.insertText(doc.firstChild.lastChild.innerHTML)
